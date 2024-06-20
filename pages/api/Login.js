@@ -1,3 +1,4 @@
+
 import bcrypt from 'bcryptjs'
 import { PrismaClient } from '@prisma/client'
 import jwt from 'jsonwebtoken'
@@ -28,4 +29,3 @@ export default async function handler(req, res){
         res.status(405).json({message: 'Message not allowed'})
     }
 }
-
