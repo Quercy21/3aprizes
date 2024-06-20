@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+}
+
+enum UserRole{
+    admin
+    formateur
+}
+
+enum ModePaiement{
+    OrangeMoney
+    MobileMoney
+    VirementBancaire
+}
+
+model utilisateur{
+    id Int @id @default(autoincrement()) 
+    nom String?
+    prenom String?
+    password String
+    email String
+    UserName String @unique
+    Telephone Int 
+    sexe String?
+    Ville String?
+    Pays String?
+    role UserRole?
+    UserRapport Rapport[]
+    UserNews NewsLetter @relation(fields: [UserNewsId], references: [id])
+    UserNewsId Int
+    clientId Int @unique
+    client Client @relation(fields: [clientId], references: [id])
+}
+
+model Formation {
+    id Int @id @default(autoincrement())
+    date DateTime @default(now())
+    intitule String
+    Prerecquis String
+    prix Int
+    heure Int
+    delais String
+    creePar String
+    debut DateTime @default(now())
+    duree Int
+    image String
+    Forapport Rapport[] 
+    FPaiement Paiement[]
+    section Section[]
+}
+
+model Rapport{
+    userRapport utilisateur @relation(fields: [userRapportId], references: [id])
+    userRapportId Int
+    Forapport Formation @relation(fields: [ForapportId], references: [id])
+    ForapportId Int
+    intitule String @unique
+    date DateTime
+
+    @@id([userRapportId, ForapportId])
+}
+
+model Client {
+    id Int @id @default(autoincrement())
+    CPaiement Paiement[]
+    utilisateur utilisateur?
+    entreprise Entreprise?
+
+}
+
+model Paiement {
+    FPaiement Formation @relation(fields: [FPaiementId], references: [id])
+    FPaiementId Int
+    CPaiement Client @relation(fields: [CPaiementId], references: [id])
+    CPaiementId Int
+    montant Int
+    date DateTime @default(now())
+    mode ModePaiement
+
+    @@id([FPaiementId, CPaiementId])
+}
+
+model NewsLetter {
+    id Int @id @default(autoincrement())
+    informations String
+    DateEnvoie DateTime 
+    UserNews utilisateur []
+}
+
+model Section {
+    id Int @id @default(autoincrement())
+    intitule String
+    debut DateTime @default(now()) 
+    duree Int 
+    formationId Int @unique
+    formation Formation @relation(fields: [formationId], references: [id], onDelete: Cascade)
+    parentId Int?
+    parent Section? @relation("SectionToSection", fields: [parentId], references: [id], onDelete: Cascade)
+    children Section[] @relation("SectionToSection")
+}
+
+model Entreprise {
+    id Int @id @default(autoincrement())
+    entrepriseId Int @unique
+    entreprise Client @relation(fields: [entrepriseId], references: [id])
+    nom String 
+    num Int
+    email String
+}
+
+

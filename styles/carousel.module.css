@@ -1,0 +1,26 @@
+.cardSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.card h6{
+    color: #363740;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.card .para{
+    text-align: center;
+    color: #363740;
+}
+

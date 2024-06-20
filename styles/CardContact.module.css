@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff; /* Couleur de fond pour le conteneur */
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    text-align: left;
+    border-radius: 15px;
+    color: #000000;
+  }
+  
+  .cardCameroun {
+    background-color: #b6ff81; /* Couleur de fond pour la carte Cameroun */
+  }
+  
+  .cardBurkinaFaso {
+    background-color: #729fcf; /* Couleur de fond pour la carte Burkina Faso */
+  }
+  
+  .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Media query pour les petits écrans */
+  @media (max-width: 600px) {
+    .container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .card {
+      margin: 10px 0;
+    }
+  }
+  

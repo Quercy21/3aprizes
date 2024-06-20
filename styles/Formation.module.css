@@ -1,0 +1,38 @@
+.main{
+    background-image: url(../public/R.jpg);
+    opacity: 70%;
+    padding: 50px;
+
+}
+
+.Form form{
+    background-color: #175792;
+    opacity: 100%;
+    padding: 50px;
+    margin-top: 60px;
+    border-radius: 15px;
+}
+
+.Form form h1{
+    font-size: 30px;
+    font-weight: bold;
+    color: azure;
+    text-align: center;
+    font-family: 'Inter';
+}
+
+.Form form p{
+    color: azure;
+    font-family: 'Inter';
+    text-align: center;
+}
+
+.Carte div {
+    display: inline-flex;
+    /* justify-content: space-between; */
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 20px;
+  
+}

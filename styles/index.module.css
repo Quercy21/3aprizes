@@ -1,0 +1,142 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.texte{
+    flex: 1;
+    margin-right: 20px;
+}
+
+.texte h1 {
+    font-size: 2.5em; 
+    font-weight: bold;
+    color: #175792; 
+    text-align: center;
+  }
+  
+  .texte p {
+    color: #020202; 
+    text-align: center;
+  }
+  
+  .green {
+    color: #85EB3A;
+  }
+
+.img{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.img image{
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.secondSection {
+    display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 40px;
+  }
+  
+  .secondTexte {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .secondTexte h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: #175792;
+  }
+  
+  .secondTexte p {
+    color: #020202;
+    text-align: center;
+  }
+  
+  .secondImg {
+    flex: 1;
+    display: flex; 
+    justify-content: center;
+  }
+  
+  .secondImg image {
+    max-width: 100%;
+    height: auto;
+  } 
+  
+  .ghost1 {
+    background-color: #175792;
+    color: white;
+    padding: 6px 24px;
+    border: none;
+    cursor: pointer;
+    margin-left: 300px;
+    margin-top: 20px;
+}
+
+.ghost1:hover{
+  background-color: white;
+  color: #175792;
+  border: 1px solid #175792;
+}
+
+.slide{
+  background-color: #222222; 
+}
+
+.slide h1{
+  color: #f1f1f1;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.CardContact{
+  color: #175792;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+    .main {
+      flex-direction: column;
+      text-align: center;
+      /* margin-top: 20px; */
+    }
+    .text {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .secondSection {
+        flex-direction: column;
+        text-align: center;
+      }
+    
+      .secondTexte {
+        margin-left: 0;
+        margin-bottom: 20px;
+      }
+
+      .ghost1 {
+        width: auto;
+        min-width: 150px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 30px;
+    }
+    }

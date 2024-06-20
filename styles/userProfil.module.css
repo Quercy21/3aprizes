@@ -1,0 +1,14 @@
+.form{
+    background-color: #ffff;
+    border: 1px solid #1757927b;
+    position: relative;
+    width: 240px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.form li {
+    padding-left: 12px;
+}
+ .form li:hover{
+    background-color: #17579237;
+ }
