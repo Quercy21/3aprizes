@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from 'react';
 import {Box, AppBar, Toolbar, Typography, Button, Drawer, List, ListItem, ListItemText, IconButton, Grid, Paper, Collapse} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -26,19 +28,21 @@ export default  async function DashboardClient(){
       setOpenFormateurs(!openFormateurs);
     };
 
-    const [formData, setFormData] = useState({
-        intitule:'',
-        prerequis:'',
-        prix:'',
-        heure:'',
-        delais:'',
-        creePar:'',
-        debut: '',
-        duree:'',
-        image:'',
-        Forapport:'',
-        section:'',
-    });
+    const [formData, setFormData] = useState(
+        {
+            intitule:'',
+            prerequis:'',
+            prix:'',
+            heure:'',
+            delais:'',
+            creePar:'',
+            debut: '',
+            duree:'',
+            image:'',
+            Forapport:'',
+            section:'',
+        }
+    );
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -66,19 +70,21 @@ export default  async function DashboardClient(){
 
     if (res.ok) {
       alert('Formation ajouté avec succès');
-      setFormData({
-        intitule:'',
-        prerequis:'',
-        prix:'',
-        heure:'',
-        delais:'',
-        creePar:'',
-        debut: '',
-        duree:'',
-        image:'',
-        Forapport:'',
-        section:'',
-      });
+      setFormData(
+        {
+            intitule:'',
+            prerequis:'',
+            prix:'',
+            heure:'',
+            delais:'',
+            creePar:'',
+            debut: '',
+            duree:'',
+            image:'',
+            Forapport:'',
+            section:'',
+          }
+      );
     } else {
       const error = await res.json();
       alert('Erreur lors de l\'ajout d\'une formation: ' + error.details);

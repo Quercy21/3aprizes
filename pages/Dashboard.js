@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import axios from 'axios'
 import {Box, AppBar, Toolbar, Typography, Button, Drawer, List, ListItem, ListItemText, IconButton, Grid, Paper, Collapse} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import styles from '../styles/Dashboard.module.css'
+import styles from '@/styles/Dashboard.module.css'
 import HeaderAdmin from '@/components/HeaderAdmin';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -38,10 +38,11 @@ const Dashboard = () => {
       axios.post('/api/verifyToken', {token})
       .then(response => {
         setUser(response.data.user)
+        console.log(response.data.user)
       })
       .catch(error => {
           console.error('Invalid token', error);
-          router.push('/Connexion')
+          //router.push('/Connexion')
       })
     }else{
       router.push('/Connexion')

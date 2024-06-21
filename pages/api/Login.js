@@ -19,7 +19,7 @@ export default async function handler(req, res){
         
         if(Utilisateur && bcrypt.compareSync(password, Utilisateur.password)){
 
-            const token = jwt.sign({id: Utilisateur.id, email: Utilisateur.email}, process.env.JWT_SECRET, {expiresIn: '1h'})
+            const token = jwt.sign({id: Utilisateur.id, email: Utilisateur.email}, process.env.JWT_SECRET, {expiresIn: '2h'})
             res.status(200).json({token})
         }else{
             res.status(401).json({message: 'Invalid email or password'})
