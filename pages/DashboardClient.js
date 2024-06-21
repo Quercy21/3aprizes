@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import jwt from 'jsonwebtoken'
 import {Box, AppBar, Toolbar, Typography, Button, Drawer, List, ListItem, ListItemText, IconButton, Grid, Paper, Collapse} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import styles from '../styles/Dashboard.module.css'
+import styles from '../styles/createFormation.module.css'
 import HeaderAdmin from '@/components/HeaderAdmin';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -71,10 +71,12 @@ export default function DashboardClient(){
           <Collapse in={openClients} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={styles.nested}>
-                <ListItemText primary="Liste des particuliers" />
+              <a href='/'>Liste des particuliers</a>
+                <ListItemText  />
               </ListItem>
               <ListItem button className={styles.nested}>
-                <ListItemText primary="Liste des entreprises" />
+              <a href='/'>Liste des entreprises</a>
+                <ListItemText />
               </ListItem>
             </List>
           </Collapse>
@@ -86,13 +88,16 @@ export default function DashboardClient(){
           <Collapse in={openFormations} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={styles.nested}>
-                <ListItemText primary="Ajouter Formations" />
+              <a href='/'>Ajouter Formations</a>
+                <ListItemText  />
               </ListItem>
               <ListItem button className={styles.nested}>
-                <ListItemText primary="Liste Formations" />
+              <a href='/'>Liste Formations</a>
+                <ListItemText  />
               </ListItem>
               <ListItem button className={styles.nested}>
-                <ListItemText primary="Demande Formations" />
+              <a href='/'>Demande Formations</a>
+                <ListItemText  />
               </ListItem>
             </List>
           </Collapse>
@@ -104,16 +109,20 @@ export default function DashboardClient(){
           <Collapse in={openFormateurs} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={styles.nested}>
-                <ListItemText primary="Ajouter Formateurs" />
+              <a href='/'>Ajouter Formateurs</a>
+                <ListItemText  />
               </ListItem>
               <ListItem button className={styles.nested}>
-                <ListItemText primary="Liste Formateurs" />
+              <a href='/'>Liste Formateurs</a>
+                <ListItemText  />
               </ListItem>
               <ListItem button className={styles.nested}>
-                <ListItemText primary="Gestion Formations" />
+              <a href='/'>Gestion Formations</a>
+                <ListItemText  />
               </ListItem>
               <ListItem button className={styles.nested}>
-                <ListItemText primary="Historique de Paiements" />
+              <a href='/'>Historique de Paiements</a>
+                <ListItemText  />
               </ListItem>
             </List>
           </Collapse>
