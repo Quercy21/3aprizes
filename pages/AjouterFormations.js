@@ -1,8 +1,7 @@
-// import styles from "../styles/DashboardClient.module.css"
 import { useState, useEffect } from 'react';
 import {Box, AppBar, Toolbar, Typography, Button, Drawer, List, ListItem, ListItemText, IconButton, Grid, Paper, Collapse} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import styles from '@/styles/createFormation.module.css'
+import styles from '@/styles/AjouterFormations.module.css'
 import HeaderAdmin from '@/components/HeaderAdmin';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -28,13 +27,17 @@ export default  async function DashboardClient(){
     };
 
     const [formData, setFormData] = useState({
-        nom: '',
-        telephone: '',
-        email: '',
-        username: '',
-        password: '',
-        confirmPassword: '',
-        cv: null
+        intitule:'',
+        prerequis:'',
+        prix:'',
+        heure:'',
+        delais:'',
+        creePar:'',
+        debut: '',
+        duree:'',
+        image:'',
+        Forapport:'',
+        section:'',
     });
 
     const handleChange = (e) => {
@@ -49,35 +52,36 @@ export default  async function DashboardClient(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        if (formData.password !== formData.confirmPassword) {
-            alert('Les mots de passe ne correspondent pas');
-            return;
-    };
+       
 
     const formDataToSend = new FormData();
     for (const key in formData) {
       formDataToSend.append(key, formData[key]);
     }
 
-    const res = await fetch('/api/formateur', {
+    const res = await fetch('/api/formations', {
       method: 'POST',
       body: formDataToSend,
     });
 
     if (res.ok) {
-      alert('Formateur ajouté avec succès');
+      alert('Formation ajouté avec succès');
       setFormData({
-        nom: '',
-        telephone: '',
-        email: '',
-        username: '',
-        password: '',
-        confirmPassword: '',
-        cv: null,
+        intitule:'',
+        prerequis:'',
+        prix:'',
+        heure:'',
+        delais:'',
+        creePar:'',
+        debut: '',
+        duree:'',
+        image:'',
+        Forapport:'',
+        section:'',
       });
     } else {
       const error = await res.json();
-      alert('Erreur lors de l\'ajout du formateur: ' + error.details);
+      alert('Erreur lors de l\'ajout d\'une formation: ' + error.details);
     }
   };
   
@@ -170,33 +174,50 @@ export default  async function DashboardClient(){
         <div className={styles.main}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.field}>
-            <label>Nom</label>
-            <input type="text" name="nom" value={formData.nom} onChange={handleChange} />
+            <label>intitule</label>
+            <input type="text" name="intitule" value={formData.intitule} onChange={handleChange} />
           </div>
           <div className={styles.field}>
-            <label>Numéro de téléphone</label>
-            <input type="text" name="telephone" value={formData.telephone} onChange={handleChange} />
+            <label>Prerecquis</label>
+            <input type="text" name="Prerecquis" value={formData.Prerecquis} onChange={handleChange} />
           </div>
           <div className={styles.field}>
-            <label>Email</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} />
+            <label>prix</label>
+            <input type="prix" name="text" value={formData.prix} onChange={handleChange} />
           </div>
           <div className={styles.field}>
-            <label>UserName</label>
-            <input type="text" name="username" value={formData.username} onChange={handleChange} />
+            <label>heure</label>
+            <input type="text" name="heure" value={formData.heure} onChange={handleChange} />
           </div>
           <div className={styles.field}>
-            <label>Mot de Passe</label>
-            <input type="password" name="password" value={formData.password} onChange={handleChange} />
+            <label>delais</label>
+            <input type="text" name="delais" value={formData.delais} onChange={handleChange} />
           </div>
           <div className={styles.field}>
-            <label>Confirmez mot de passe</label>
-            <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
+            <label>creePar</label>
+            <input type="text" name="creePar" value={formData.creePar} onChange={handleChange} />
           </div>
           <div className={styles.field}>
-            <label>CV</label>
-            <input type="file" name="cv" onChange={handleFileChange} />
+            <label>debut</label>
+            <input type="date" name="debut"  value={formData.debut} onChange={handleChange} />
           </div>
+          <div className={styles.field}>
+            <label>duree</label>
+            <input type="text" name="duree" value={formData.duree} onChange={handleChange} />
+          </div>
+          <div className={styles.field}>
+            <label>Forapport</label>
+            <input type="text" name="Forapport" value={formData.Forapport} onChange={handleChange} />
+          </div>
+          <div className={styles.field}>
+            <label>section</label>
+            <input type="text" name="section" value={formData.section} onChange={handleChange} />
+          </div>
+          <div className={styles.field}>
+            <label>image</label>
+            <input type="fields" name="image"  onChange={handleFileChange} />
+          </div>
+
           <button type="submit" className={styles.submitButton}>Confirmer</button>
         </form>
       </div>

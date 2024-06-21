@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import jwt from 'jsonwebtoken'
 import {Box, AppBar, Toolbar, Typography, Button, Drawer, List, ListItem, ListItemText, IconButton, Grid, Paper, Collapse} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import styles from '../styles/createFormation.module.css'
+import styles from '../styles/Dashboard.module.css'
 import HeaderAdmin from '@/components/HeaderAdmin';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -88,7 +88,7 @@ export default function DashboardClient(){
           <Collapse in={openFormations} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={styles.nested}>
-              <a href='/'>Ajouter Formations</a>
+              <a href='/AjouterFormations'>Ajouter Formations</a>
                 <ListItemText  />
               </ListItem>
               <ListItem button className={styles.nested}>
@@ -109,7 +109,7 @@ export default function DashboardClient(){
           <Collapse in={openFormateurs} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={styles.nested}>
-              <a href='/'>Ajouter Formateurs</a>
+              <a href='/createFormation'>Ajouter Formateurs</a>
                 <ListItemText  />
               </ListItem>
               <ListItem button className={styles.nested}>
